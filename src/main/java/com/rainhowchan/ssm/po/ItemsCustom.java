@@ -6,4 +6,5 @@ package com.rainhowchan.ssm.po;
  */
 
 public class ItemsCustom extends Items {
+
 }

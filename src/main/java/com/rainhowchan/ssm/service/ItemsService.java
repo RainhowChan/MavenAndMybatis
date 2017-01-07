@@ -1,6 +1,7 @@
 package com.rainhowchan.ssm.service;
 
 import com.rainhowchan.ssm.po.ItemsCustom;
+import com.rainhowchan.ssm.po.ItemsQueryVo;
 
 import java.util.List;
 
@@ -9,8 +10,9 @@ import java.util.List;
  */
 public interface ItemsService {
 
-    List<ItemsCustom> findItemsList(ItemsCustom itemsCustom) throws Exception;
+    List<ItemsCustom> findItemsList(ItemsQueryVo itemsQueryVo) throws Exception;
 
-    ItemsCustom findItemsById(int id);
+    ItemsCustom findItemsById(Integer id) throws Exception;
 
+    public void updateItems(Integer id,ItemsCustom itemsCustom)throws Exception;
 }

@@ -13,6 +13,6 @@
 </head>
 <body>
     <h1>图片</h1>
-    <img src="../../img/toy.png" alt="">
+    <img src="${pageContext.request.contextPath}/img/toy.png" alt="">
 </body>
 </html>
