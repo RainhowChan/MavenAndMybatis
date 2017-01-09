@@ -13,6 +13,6 @@ import java.util.Date;
 public class CustomPropertyEditor implements PropertyEditorRegistrar {
 
     public void registerCustomEditors(PropertyEditorRegistry binder) {
-        binder.registerCustomEditor(Date.class, new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd HH-mm-ss"), true));
+        binder.registerCustomEditor(Date.class, new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"), true));
     }
 }

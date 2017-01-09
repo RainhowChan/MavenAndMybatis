@@ -4,15 +4,16 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
+    </bean>
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
         <property name="webBindingInitializer" ref="customBinder"/>
     </bean>
 
 
-    <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
+  <!--  <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
 
-    <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>
+    <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>-->
 
     <context:component-scan base-package="com.rainhowchan.ssm.controller" use-default-filters="false">
         <mvc:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
@@ -27,11 +28,21 @@
     <bean id="customPropertyEditor" class="com.rainhowchan.ssm.propertyeditor.CustomPropertyEditor"/>
 
     <bean id="customBinder" class="org.springframework.web.bind.support.ConfigurableWebBindingInitializer">
+        <!--<property name="conversionService" ref="conversionService"/>-->
         <property name="propertyEditorRegistrars">
             <list>
                 <ref bean="customPropertyEditor"/>
             </list>
-        </property>
+        </property><!--老版本使用的类型转换器-->
     </bean>
+
+    <!--<bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <property name="converters">
+            <list>
+                <bean class="com.rainhowchan.ssm.controller.converter.CustomDaateConverter"/>
+                <bean class="com.rainhowchan.ssm.controller.converter.StringTrimConverter"/>
+            </list>
+        </property>
+    </bean>-->
 
 </beans>

@@ -53,6 +53,7 @@ public class ItemsController {
 
     @RequestMapping(value = "/editItemSubmit", method = RequestMethod.POST)
     public String commitItem(Integer id, ItemsCustom itemsCustom) {
+        System.out.println(id+"---"+itemsCustom.toString());
         try {
             itemsService.updateItems(id, itemsCustom);
         } catch (Exception e) {
@@ -61,15 +62,15 @@ public class ItemsController {
         return "redirect:queryItems.action";
     }
 
-    /**
+   /* *//**
      * 无法在多个controller中使用
      * @param binder
      * @throws Exception
-     */
+     *//*
     @InitBinder
     public void initBinder(WebDataBinder binder) throws Exception {
         binder.registerCustomEditor(Date.class, new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"), true));
-    }
+    }*/
 
 
 }
